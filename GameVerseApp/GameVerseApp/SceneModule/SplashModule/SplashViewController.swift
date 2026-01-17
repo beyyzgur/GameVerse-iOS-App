@@ -25,6 +25,4 @@ class SplashViewController: UIViewController {
             StoryboardNavigableManager.shared.push(storyboardId: .welcoming, delegate: self)
         }
     }
-
-    
 }
