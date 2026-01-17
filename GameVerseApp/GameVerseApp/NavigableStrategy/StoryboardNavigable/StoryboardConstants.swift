@@ -9,8 +9,9 @@ public enum StoryboardIdentifier: String {
     case welcoming
     case register
     case login
+    case tabBar
     case home
-    case wishlist
+    case favorites
     case discover
     case cart
     case profile
@@ -20,8 +21,9 @@ public enum StoryBoardName: String {
     case welcoming = "Welcoming"
     case register = "Register"
     case login = "Login"
+    case tabBar = "TabBar"
     case home = "Home"
-    case wishlist = "Wishlist"
+    case favorites = "Wishlist"
     case discover = "Discover"
     case cart = "Cart"
     case profile = "Profile"
