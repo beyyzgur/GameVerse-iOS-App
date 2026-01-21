@@ -7,9 +7,16 @@
 
 import UIKit
 
-class SplashViewController: UIViewController {
+protocol SplashViewControllerInterface: AnyObject {
+    func navigateToTabBar()
+    func navigateToWelcome()
+}
+
+final class SplashViewController: UIViewController {
     @IBOutlet weak var splashTitle1: UILabel!
     @IBOutlet weak var splashTitle2: UILabel!
+    
+    private lazy var viewModel = SplashViewModel(view: self)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,12 +24,24 @@ class SplashViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        navigateToWelcome()
+        route()
+    }
+    
+    func route() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            self.viewModel.routeControl()
+        }
+    }
+}
+
+extension SplashViewController: SplashViewControllerInterface {
+    func navigateToTabBar() {
+        viewModel.storyboardNavigableManager.push(storyboardId: .tabBar,
+                                                  delegate: self)
     }
     
     func navigateToWelcome() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-            StoryboardNavigableManager.shared.push(storyboardId: .welcoming, delegate: self)
-        }
+        viewModel.storyboardNavigableManager.push(storyboardId: .welcoming,
+                                                  delegate: self)
     }
 }
