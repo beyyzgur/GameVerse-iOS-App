@@ -17,7 +17,6 @@ final class TabBarController: UITabBarController {
     let homeStoryBoard = UIStoryboard(name: StoryBoardName.home.rawValue, bundle: nil)
     let favoritesStoryBoard = UIStoryboard(name: StoryBoardName.favorites.rawValue, bundle: nil)
     let discoverStoryBoard = UIStoryboard(name: StoryBoardName.discover.rawValue, bundle: nil)
-    let cartStoryBoard = UIStoryboard(name: StoryBoardName.cart.rawValue, bundle: nil)
     let profileStoryBoard = UIStoryboard(name: StoryBoardName.profile.rawValue, bundle: nil)
     
     func setupControllers() {
@@ -46,14 +45,6 @@ final class TabBarController: UITabBarController {
         discoverNavController.tabBarItem = UITabBarItem(title: StoryBoardName.discover.rawValue,
                                                         image: UIImage(systemName: "gamecontroller"),
                                                         tag: 2)
-        // MARK: - cart
-        guard let cartViewController = cartStoryBoard.instantiateViewController(withIdentifier:
-                                                                                    StoryboardIdentifier.cart.rawValue) as? CartViewController
-          else { return }
-        let cartNavController = UINavigationController(rootViewController: cartViewController)
-        cartNavController.tabBarItem = UITabBarItem(title: StoryBoardName.cart.rawValue,
-                                                    image: UIImage(systemName: "cart"),
-                                                    tag: 3)
         // MARK: - profile
         guard let profileViewController = profileStoryBoard.instantiateViewController(withIdentifier:
                                                                                         StoryboardIdentifier.profile.rawValue) as? ProfileViewController
@@ -61,14 +52,13 @@ final class TabBarController: UITabBarController {
         let profileNavController = UINavigationController(rootViewController: profileViewController)
         profileNavController.tabBarItem = UITabBarItem(title: StoryBoardName.profile.rawValue,
                                                        image: UIImage(systemName: "person"),
-                                                       tag: 4)
+                                                       tag: 3)
         
         
         setViewControllers([
             homeNavController,
             favoritesNavController,
             discoverNavController,
-            cartNavController,
             profileNavController],
                            animated: true)
         
