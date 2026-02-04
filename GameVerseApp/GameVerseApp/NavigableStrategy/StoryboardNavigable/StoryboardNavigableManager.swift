@@ -15,7 +15,10 @@ class StoryboardNavigableManager {
     let items : [StoryboardNavigable] = [
         WelcomingNavigable(),
         RegisterNavigable(),
-        LoginNavigable()
+        LoginNavigable(),
+        TabBarNavigable(),
+        HomeNavigable(),
+        DetailNavigable()
         // HomeNavigable()
         // WishlistNavigable()
         //...
