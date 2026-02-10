@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="24412" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24405"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TrendingGamesCollectionViewCell" id="gTV-IL-0wX" customClass="TrendingGamesCollectionViewCell" customModule="GameVerseApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="200"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="393" height="200"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ahi-7s-r2d">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="200"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="iea-LT-0KQ">
+                                <rect key="frame" x="0.0" y="40" width="393" height="160"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="PB3-6Q-MAL">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                            </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trending Games" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nMh-BB-x7F">
+                                <rect key="frame" x="16" y="0.0" width="143.33333333333334" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" name="textColor_white"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="nMh-BB-x7F" firstAttribute="top" secondItem="ahi-7s-r2d" secondAttribute="top" id="5y6-ht-V30"/>
+                            <constraint firstAttribute="bottom" secondItem="iea-LT-0KQ" secondAttribute="bottom" id="KLR-M3-67n"/>
+                            <constraint firstItem="iea-LT-0KQ" firstAttribute="leading" secondItem="ahi-7s-r2d" secondAttribute="leading" id="Rdn-v4-0oU"/>
+                            <constraint firstItem="iea-LT-0KQ" firstAttribute="top" secondItem="nMh-BB-x7F" secondAttribute="bottom" constant="16" id="V6l-ak-bYT"/>
+                            <constraint firstItem="nMh-BB-x7F" firstAttribute="leading" secondItem="ahi-7s-r2d" secondAttribute="leading" constant="16" id="hfN-L1-ozT"/>
+                            <constraint firstAttribute="trailing" secondItem="iea-LT-0KQ" secondAttribute="trailing" id="tAu-JC-e1s"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="ahi-7s-r2d" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="1kj-Di-7Un"/>
+                <constraint firstAttribute="trailing" secondItem="ahi-7s-r2d" secondAttribute="trailing" id="7zg-9C-A5w"/>
+                <constraint firstAttribute="bottom" secondItem="ahi-7s-r2d" secondAttribute="bottom" id="DQH-0z-bHR"/>
+                <constraint firstItem="ahi-7s-r2d" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="OsA-yL-Hac"/>
+            </constraints>
+            <size key="customSize" width="378" height="188"/>
+            <connections>
+                <outlet property="collectionView" destination="iea-LT-0KQ" id="gWi-IP-Zqc"/>
+                <outlet property="gameLabel" destination="nMh-BB-x7F" id="TiA-wR-dN3"/>
+            </connections>
+            <point key="canvasLocation" x="257.25190839694653" y="122.88732394366198"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <namedColor name="textColor_white">
+            <color red="0.94117647058823528" green="0.94117647058823528" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+    </resources>
+</document>
