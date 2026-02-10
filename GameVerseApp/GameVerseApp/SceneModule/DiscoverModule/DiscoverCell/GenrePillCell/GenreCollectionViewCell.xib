@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="24412" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24405"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="GenreCollectionViewCell" id="gTV-IL-0wX" customClass="GenreCollectionViewCell" customModule="GameVerseApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="89" height="40"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="89" height="40"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gG8-4u-cmF">
+                        <rect key="frame" x="0.0" y="0.0" width="89" height="40"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VOJ-Pa-Uw4">
+                                <rect key="frame" x="40" y="6" width="9" height="28"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" name="textColor_white"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="VOJ-Pa-Uw4" firstAttribute="leading" secondItem="gG8-4u-cmF" secondAttribute="leading" constant="40" id="Si2-xG-H7x"/>
+                            <constraint firstAttribute="bottom" secondItem="VOJ-Pa-Uw4" secondAttribute="bottom" constant="6" id="bB3-yh-6aO"/>
+                            <constraint firstAttribute="trailing" secondItem="VOJ-Pa-Uw4" secondAttribute="trailing" constant="40" id="lYU-MN-bml"/>
+                            <constraint firstItem="VOJ-Pa-Uw4" firstAttribute="top" secondItem="gG8-4u-cmF" secondAttribute="top" constant="6" id="t66-h7-YIa"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="gG8-4u-cmF" secondAttribute="trailing" id="Hcd-Jq-KdJ"/>
+                <constraint firstItem="gG8-4u-cmF" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Q13-ci-aCS"/>
+                <constraint firstAttribute="bottom" secondItem="gG8-4u-cmF" secondAttribute="bottom" id="Zd7-iU-O6E"/>
+                <constraint firstItem="gG8-4u-cmF" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="i7M-Xg-EKC"/>
+            </constraints>
+            <size key="customSize" width="89" height="40"/>
+            <connections>
+                <outlet property="genrePillLabel" destination="VOJ-Pa-Uw4" id="ziE-25-p78"/>
+            </connections>
+            <point key="canvasLocation" x="133.58778625954199" y="126.7605633802817"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <namedColor name="textColor_white">
+            <color red="0.94117647058823528" green="0.94117647058823528" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+    </resources>
+</document>

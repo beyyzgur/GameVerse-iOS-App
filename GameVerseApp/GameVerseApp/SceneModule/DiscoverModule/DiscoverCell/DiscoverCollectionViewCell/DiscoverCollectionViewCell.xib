@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="24412" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24405"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="DiscoverCollectionViewCell" id="gTV-IL-0wX" customClass="DiscoverCollectionViewCell" customModule="GameVerseApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="180" height="132"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="180" height="132"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lwd-rs-yem" userLabel="containerView">
+                        <rect key="frame" x="0.0" y="0.0" width="180" height="132"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gpc-5z-z5i">
+                                <rect key="frame" x="0.0" y="0.0" width="180" height="132"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="gpc-5z-z5i" secondAttribute="bottom" id="7Kc-Vm-JMq"/>
+                            <constraint firstItem="gpc-5z-z5i" firstAttribute="top" secondItem="Lwd-rs-yem" secondAttribute="top" id="JIl-lS-IQ0"/>
+                            <constraint firstAttribute="trailing" secondItem="gpc-5z-z5i" secondAttribute="trailing" id="Tnx-Ke-O39"/>
+                            <constraint firstItem="gpc-5z-z5i" firstAttribute="leading" secondItem="Lwd-rs-yem" secondAttribute="leading" id="wHO-bb-CXX"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="Lwd-rs-yem" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="D9f-8P-bli"/>
+                <constraint firstAttribute="trailing" secondItem="Lwd-rs-yem" secondAttribute="trailing" id="f5G-7v-i0F"/>
+                <constraint firstAttribute="bottom" secondItem="Lwd-rs-yem" secondAttribute="bottom" id="fVi-Nn-rQb"/>
+                <constraint firstItem="Lwd-rs-yem" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="w8A-sd-hRg"/>
+            </constraints>
+            <size key="customSize" width="276" height="158"/>
+            <connections>
+                <outlet property="containerView" destination="Lwd-rs-yem" id="mD0-cs-9aL"/>
+                <outlet property="imageView" destination="gpc-5z-z5i" id="wOd-d9-pUc"/>
+            </connections>
+            <point key="canvasLocation" x="195.41984732824426" y="136.61971830985917"/>
+        </collectionViewCell>
+    </objects>
+</document>
