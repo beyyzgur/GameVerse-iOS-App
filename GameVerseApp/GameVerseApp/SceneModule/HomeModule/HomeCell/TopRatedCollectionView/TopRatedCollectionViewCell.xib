@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="24412" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24405"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TopRatedCollectionViewCell" id="gTV-IL-0wX" customClass="TopRatedCollectionViewCell" customModule="GameVerseApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="320"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="393" height="320"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XBZ-6S-OSP">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="320"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Top Rated" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1JG-va-qUc">
+                                <rect key="frame" x="16" y="0.0" width="88.666666666666671" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" name="textColor_white"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="NdQ-0Z-M2n">
+                                <rect key="frame" x="0.0" y="40" width="393" height="280"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="cJ2-b0-5eC">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="NdQ-0Z-M2n" secondAttribute="bottom" id="87l-xs-Ls3"/>
+                            <constraint firstAttribute="trailing" secondItem="NdQ-0Z-M2n" secondAttribute="trailing" id="Cvx-Sd-7UZ"/>
+                            <constraint firstItem="NdQ-0Z-M2n" firstAttribute="leading" secondItem="XBZ-6S-OSP" secondAttribute="leading" id="IEt-h5-sNJ"/>
+                            <constraint firstItem="1JG-va-qUc" firstAttribute="top" secondItem="XBZ-6S-OSP" secondAttribute="top" id="PG1-Rc-EqG"/>
+                            <constraint firstItem="NdQ-0Z-M2n" firstAttribute="top" secondItem="1JG-va-qUc" secondAttribute="bottom" constant="16" id="fH6-zC-9sv"/>
+                            <constraint firstItem="1JG-va-qUc" firstAttribute="leading" secondItem="XBZ-6S-OSP" secondAttribute="leading" constant="16" id="gB1-C1-ymt"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="XBZ-6S-OSP" secondAttribute="bottom" id="kU0-9u-gqn"/>
+                <constraint firstItem="XBZ-6S-OSP" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="nKV-ri-33E"/>
+                <constraint firstAttribute="trailing" secondItem="XBZ-6S-OSP" secondAttribute="trailing" id="xxs-sd-Qai"/>
+                <constraint firstItem="XBZ-6S-OSP" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="yjp-uB-opF"/>
+            </constraints>
+            <size key="customSize" width="478" height="173"/>
+            <connections>
+                <outlet property="collectionView" destination="NdQ-0Z-M2n" id="gj5-vN-sdq"/>
+                <outlet property="topRatedLabel" destination="1JG-va-qUc" id="eZ9-h7-cNe"/>
+            </connections>
+            <point key="canvasLocation" x="227.48091603053433" y="144.71830985915494"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <namedColor name="textColor_white">
+            <color red="0.94117647058823528" green="0.94117647058823528" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+    </resources>
+</document>
