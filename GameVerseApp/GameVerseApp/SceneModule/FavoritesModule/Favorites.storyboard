@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="24412" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24405"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Favorites View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="favorites" id="Y6W-OH-hqX" customClass="FavoritesViewController" customModule="GameVerseApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="app_background" translatesAutoresizingMaskIntoConstraints="NO" id="4Xz-bT-Qgt">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                            </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Y4X-zb-Vnf">
+                                <rect key="frame" x="0.0" y="118" width="393" height="734"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="4Xz-bT-Qgt" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="8B1-L4-gGD"/>
+                            <constraint firstItem="Y4X-zb-Vnf" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="GUw-en-GE7"/>
+                            <constraint firstItem="Y4X-zb-Vnf" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="Gvf-R3-Btr"/>
+                            <constraint firstAttribute="bottom" secondItem="Y4X-zb-Vnf" secondAttribute="bottom" id="M5R-Qv-u3J"/>
+                            <constraint firstItem="Y4X-zb-Vnf" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="P4K-XF-DT1"/>
+                            <constraint firstItem="4Xz-bT-Qgt" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="Svb-1v-d4Y"/>
+                            <constraint firstItem="4Xz-bT-Qgt" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="cH5-Xa-urx"/>
+                            <constraint firstAttribute="bottom" secondItem="4Xz-bT-Qgt" secondAttribute="bottom" id="yso-uX-uPc"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="Y4X-zb-Vnf" id="C4t-05-H5e"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="138.1679389312977" y="130.98591549295776"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="app_background" width="4016" height="6016"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
