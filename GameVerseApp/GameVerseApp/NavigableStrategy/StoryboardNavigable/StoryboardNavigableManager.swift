@@ -18,17 +18,15 @@ class StoryboardNavigableManager {
         LoginNavigable(),
         TabBarNavigable(),
         HomeNavigable(),
-        DetailNavigable()
-        // HomeNavigable()
-        // WishlistNavigable()
-        //...
+        DetailNavigable(),
+        DiscoverNavigable(),
+        FavoritesNavigable()
     ]
     
     func push(storyboardId: StoryboardIdentifier,
               navigationController: UINavigationController? = nil,
               delegate: AnyObject? = nil,
-              args: Any? = nil,
-              animated: Bool = true) {
+              args: Any? = nil) {
         guard let items = items.first(where: {
             $0.isSatisfied(storyboardId: storyboardId, delegate: delegate, args: args)
         })
