@@ -24,7 +24,7 @@ enum ApiRouter {
     case getGameByCategory(genreId: Int)
     case getGamePhoto(id: String) // IMAGE DÖNCEKK
     case getTopRatedGames
-    //case getCustomGames
+    case getNextPage(url: String)
 }
 
 extension ApiRouter: ApiRouterProtocol {
@@ -42,12 +42,14 @@ extension ApiRouter: ApiRouterProtocol {
             return "/genres"
         case .getGamePhoto(id: let id):
             return "/games/\(id)/screenshots"
+        case .getNextPage:
+            return ""
         }
     }
     
     var httpMethod: HttpMethod {
         switch self {
-        case .getAllGames, .getGameDetail, .getCategories, .getGamePhoto, .getTrendingGames, .searchQuery, .getGameByCategory, .getTopRatedGames:
+        case .getAllGames, .getGameDetail, .getCategories, .getGamePhoto, .getTrendingGames, .searchQuery, .getGameByCategory, .getTopRatedGames, .getNextPage:
             return .get
         }
     }
@@ -77,6 +79,16 @@ extension ApiRouter: ApiRouterProtocol {
     }
     
     func request() throws -> URLRequest {
+        
+        if case .getNextPage(let urlString) = self {
+            guard let url = URL(string: urlString) else {
+                throw NetworkError.invalidURL
+            }
+            var request = URLRequest(url: url)
+            request.httpMethod = httpMethod.rawValue
+            return request
+        }
+        
         guard var components = URLComponents(string: baseURL + path ) else { // baseURL + path + "?key="
             throw NetworkError.invalidURL
         }
