@@ -12,21 +12,25 @@ protocol DiscoverViewModelInterface {
     var genres: [GenreModel] { get }
     var games: [GameModel] { get }
     
-    func fetchGenres()
-    func fetchGames()
+    func fetchInitialAPIRequests()
+    func fetchGenres() async
+    func fetchGames() async
     func searchGames(with text: String)
-    func fetchGamesByCategory(id: Int)
+    func fetchGamesByCategory(id: Int) async
     func didSelectGenre(at index: Int)
+    func fetchNextPageGames()
 }
 
 final class DiscoverViewModel {
     weak var view: DiscoverViewControllerInterface?
     var apiService: ApiService
     var storyboardNavigableManager: StoryboardNavigableManager
+    var isLoadingMore: Bool = false
     
     var genres: [GenreModel] = []
     var games: [GameModel] = []
     private var searchWorkItem: DispatchWorkItem?
+    private var nextUrlString: String?
     
     init(view: DiscoverViewControllerInterface?,
          apiService: ApiService = ApiService.shared,
@@ -49,37 +53,46 @@ final class DiscoverViewModel {
     
 }
 extension DiscoverViewModel: DiscoverViewModelInterface {
-    func fetchGenres() {
+    func fetchInitialAPIRequests() {
         Task {
-            do {
-                let response: ApiResponse<GenreModel> = try await apiService.request(.getCategories)
-                
-                let allCategoryPill = GenreModel(id: nil, name: "All", imageBackground: nil, games: nil)
-                self.genres = [allCategoryPill] + response.results
-
-                await MainActor.run {
-                    self.view?.showGenres(response.results)
-                }
-            } catch {
-                await MainActor.run {
-                    self.view?.makeAlert(title: "Error", message: "Genres not found", onOK: nil)
-                }
+            view?.showProgress()
+            async let fetchGenres: Void = fetchGenres()
+            async let fetchGames: Void = fetchGames()
+            
+            _ = await (fetchGenres, fetchGames)
+            view?.removeProgress()
+        }
+    }
+    
+    func fetchGenres() async {
+        do {
+            let response: ApiResponse<GenreModel> = try await apiService.request(.getCategories)
+            
+            let allCategoryPill = GenreModel(id: nil, name: "All", imageBackground: nil, games: nil)
+            self.genres = [allCategoryPill] + response.results
+            
+            await MainActor.run {
+                self.view?.showGenres(response.results)
+            }
+        } catch {
+            await MainActor.run {
+                self.view?.makeAlert(title: "Error", message: "Genres not found", onOK: nil)
             }
         }
     }
     
-    func fetchGames() {
-        Task {
-            do {
-                let response: ApiResponse<GameModel> = try await apiService.request(.getAllGames)
-                self.games = response.results
-                
-                await MainActor.run {
-                    self.view?.showGames(games)
-                }
-            } catch {
-                self.view?.makeAlert(title: "Error", message: "Games not found", onOK: nil)
+    
+    func fetchGames() async {
+        do {
+            let response: ApiResponse<GameModel> = try await apiService.request(.getAllGames)
+            self.games = response.results
+            self.nextUrlString = response.next
+            
+            await MainActor.run {
+                self.view?.showGames(games)
             }
+        } catch {
+            self.view?.makeAlert(title: "Error", message: "Games not found", onOK: nil)
         }
     }
     
@@ -89,12 +102,13 @@ extension DiscoverViewModel: DiscoverViewModelInterface {
                 if !text.isEmpty {
                     let response: ApiResponse<GameModel> = try await apiService.request(.searchQuery(text: text))
                     self.games = response.results
+                    self.nextUrlString = response.next
                     
                     await MainActor.run {
                         self.view?.showGames(self.games)
                     }
                 } else {
-                    self.fetchGames()
+                    await self.fetchGames()
                 }
             } catch {
                 self.view?.makeAlert(title: "Error", message: "Search failed", onOK: nil)
@@ -103,26 +117,60 @@ extension DiscoverViewModel: DiscoverViewModelInterface {
     }
     
     func didSelectGenre(at index: Int) {
-        guard index < genres.count else { return }
-        
-        if let genreId = genres[index].id {
-            fetchGamesByCategory(id: genreId)
-        } else {
-            fetchGames()
+        Task {
+            await didSelectGenreInternal(at: index)
         }
     }
     
-    func fetchGamesByCategory(id: Int) {
+    func didSelectGenreInternal(at index: Int) async {
+        guard index < genres.count else { return }
+        
+        if let genreId = genres[index].id {
+            await fetchGamesByCategory(id: genreId)
+        } else {
+            await fetchGames()
+        }
+    }
+    
+    func fetchGamesByCategory(id: Int) async {
+        do {
+            let response: ApiResponse<GameModel> = try await apiService.request(.getGameByCategory(genreId: id))
+            self.games = response.results
+            self.nextUrlString = response.next
+            
+            await MainActor.run {
+                self.view?.showGames(self.games)
+            }
+        } catch {
+            self.view?.makeAlert(title: "Error", message: "This category has no games", onOK: nil)
+        }
+    }
+    
+    func fetchNextPageGames() {
         Task {
-            do {
-                let response: ApiResponse<GameModel> = try await apiService.request(.getGameByCategory(genreId: id))
-                self.games = response.results
-                
-                await MainActor.run {
-                    self.view?.showGames(self.games)
-                }
-            } catch {
-                self.view?.makeAlert(title: "Error", message: "This category has no games", onOK: nil)
+            await fetchNextPageGamesInternal()
+        }
+    }
+    
+    func fetchNextPageGamesInternal() async {
+        guard !isLoadingMore, let nextUrl = nextUrlString else { return }
+    
+        isLoadingMore = true
+        
+        do {
+            let response: ApiResponse<GameModel> = try await apiService.request(.getNextPage(url: nextUrl))
+            self.nextUrlString = response.next
+            
+            self.games.append(contentsOf: response.results)
+            
+            await MainActor.run {
+                self.isLoadingMore = false
+                self.view?.showGames(self.games)
+            }
+        } catch {
+            await MainActor.run {
+                self.isLoadingMore = false
+                print("Pagination Error: \(error)")
             }
         }
     }

@@ -8,7 +8,8 @@
 import UIKit
 
 protocol DiscoverViewControllerInterface: AnyObject,
-                                          AlertPresentable {
+                                          AlertPresentable,
+                                          SpinnerDisplayable{
     func showGenres(_ genres: [GenreModel])
     func showGames(_ games: [GameModel])
     func activateSearch()
@@ -28,8 +29,7 @@ class DiscoverViewController: UIViewController {
         register()
         setupCollectionViewFlowLayout()
         
-        viewmodel.fetchGenres()
-        viewmodel.fetchGames()
+        viewmodel.fetchInitialAPIRequests()
     }
     
     private func setupDataSourcesAndDelegates() {
@@ -132,6 +132,24 @@ extension DiscoverViewController: UICollectionViewDelegate {
         default:
             break
             
+        }
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        // Sadece oyun listesi için çalışsın
+        guard scrollView == self.collectionView else { return }
+        
+        let offsetY = scrollView.contentOffset.y
+        let contentHeight = scrollView.contentSize.height
+        let height = scrollView.frame.size.height
+        
+        // En alta 100px kala yeni sayfayı iste
+    print("hex1 scroll yapiliyor...: offsetY: \(offsetY), contentHeight: \(contentHeight), height: \(height);;; ofsetU > contentH - height - 100: \(offsetY > contentHeight - height - 100)")
+        if offsetY > contentHeight - height - 100 {
+            // ViewModel içindeki fetchNextPageGames() metodunu çağır
+            // Not: ViewModel protokolüne (Interface) bu metodu eklemeyi unutma
+            print("hex1 fetch nex games")
+            viewmodel.fetchNextPageGames()
         }
     }
 }
