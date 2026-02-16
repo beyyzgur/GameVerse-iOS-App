@@ -8,7 +8,8 @@
 import UIKit
 
 protocol DetailViewControllerInterface: AnyObject,
-                                        AlertPresentable {
+                                        AlertPresentable,
+                                        SpinnerDisplayable {
     func showGameDetails(_ gameDetails: [GameDetailModel])
 }
 
@@ -21,7 +22,7 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        viewmodel.fetchGameDetails()
+        viewmodel.fetchInitialAPIRequests()
     }
     // scrollable olmasını düzeltcen, sonra da favorite view controllera gitcenn
     override func viewWillAppear(_ animated: Bool) {

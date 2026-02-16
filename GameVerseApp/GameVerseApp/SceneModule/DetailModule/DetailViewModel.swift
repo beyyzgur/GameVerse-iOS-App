@@ -11,7 +11,8 @@ protocol DetailViewModelInterface {
     var storyboardNavigableManager: StoryboardNavigableManager { get }
     var gameDetails: [GameDetailModel] { get }
     
-    func fetchGameDetails()
+    func fetchInitialAPIRequests()
+    func fetchGameDetails() async
     func toggleFavorite(model: GameDetailModel)
     func checkIsFavorite(_ gameId: Int) -> Bool
 }
@@ -36,8 +37,14 @@ final class DetailViewModel {
 }
 
 extension DetailViewModel: DetailViewModelInterface {
-    func fetchGameDetails() {
+    func fetchInitialAPIRequests() {
         Task {
+            self.view?.showProgress()
+            await fetchGameDetails()
+            self.view?.removeProgress()
+        }
+    }
+    func fetchGameDetails() async {
             do {
                 let response: GameDetailModel = try await apiService.request(.getGameDetail(id: self.gameId))
                 self.gameDetails = [response]
@@ -49,7 +56,6 @@ extension DetailViewModel: DetailViewModelInterface {
             } catch {
                 self.view?.makeAlert(title: "Error", message: "Details not found.", onOK: nil)
             }
-        }
     }
     
     func toggleFavorite(model: GameDetailModel) {
