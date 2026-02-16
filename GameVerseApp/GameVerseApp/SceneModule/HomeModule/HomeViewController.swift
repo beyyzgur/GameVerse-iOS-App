@@ -8,7 +8,8 @@
 import UIKit
 
 protocol HomeViewControllerInterface: AnyObject,
-                                      AlertPresentable {
+                                      AlertPresentable,
+                                      SpinnerDisplayable {
     func showTrendingGames(_ games: [TrendingGamesModel])
     func showTopRatedGames(_ games: [GameModel])
 }
@@ -20,12 +21,10 @@ final class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewmodel.viewDidLoad()
         setCustomFlowLayout() // çünkü layout en basta ayarlanır => layout => cell ölçümü => auto-layout
         setupDataSourcesAndDelegates()
         registerCells()
-        
-        viewmodel.fetchTrendingGames()
-        viewmodel.fetchTopRatedGames()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -82,9 +81,9 @@ extension HomeViewController: UICollectionViewDataSource {
         case .header:
             return 1
         case .trendingGames:
-            return 1 // yatayda kayan tek 1 cell
+            return viewmodel.trendingGames.isEmpty ? 0 : 1
         case .topRatedGames:
-            return 1
+            return viewmodel.topRatedGames.isEmpty ? 0 : 1
         }
     }
     
