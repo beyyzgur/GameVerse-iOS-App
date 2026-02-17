@@ -65,7 +65,6 @@ extension DetailViewModel: DetailViewModelInterface {
         } else {
             FavoritesManager.shared.addToFavorites(game)
         }
-        self.view?.showGameDetails(self.gameDetails) // reload data için
     }
     
     func checkIsFavorite(_ gameId: Int) -> Bool {

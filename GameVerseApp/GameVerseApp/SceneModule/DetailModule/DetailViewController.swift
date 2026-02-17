@@ -24,7 +24,7 @@ class DetailViewController: UIViewController {
         setupUI()
         viewmodel.fetchInitialAPIRequests()
     }
-    // scrollable olmasını düzeltcen, sonra da favorite view controllera gitcenn
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         configureNavigationBar()
@@ -38,8 +38,6 @@ class DetailViewController: UIViewController {
     
     private func setupUI() {
         collectionView.contentInsetAdjustmentBehavior = .never
-        //collectionView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 100, right: 0)
-       // collectionView.isScrollEnabled = true bunu yorum satırına alınca da oluyokine
         setDataSourcesAndDelegates()
         registerCells()
         setCustomFlowLayout(
@@ -51,9 +49,12 @@ class DetailViewController: UIViewController {
     }
     
     private func configureNavigationBar() {
+        let font = UIFont(name: "HoeflerText-Regular", size: 18)
+        
         let appearance = UINavigationBarAppearance()
         appearance.configureWithTransparentBackground()
-        appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+        appearance.titleTextAttributes = [.foregroundColor: UIColor.white,
+                                          .font: font as Any]
         
         navigationController?.navigationBar.standardAppearance = appearance
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
@@ -83,7 +84,7 @@ class DetailViewController: UIViewController {
     }
     
 }
-// detail view controller a navigation bar için bir sey eklenecek cunku imageviewin superviewa sey olmasını engelliyor.
+
 // MARK: - extensions
 extension DetailViewController: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -106,13 +107,9 @@ extension DetailViewController: UICollectionViewDataSource {
                     as? DetailHeaderCollectionViewCell else { return UICollectionViewCell() }
             if let details = viewmodel.gameDetails.first {
                 cell.delegate = self
-                
-                //let isFavorite = viewmodel.checkIsFavorite(details.id ?? 0)
                 cell.configure(with: details)
             }
             return cell
-      //  case .streaming:
-        
         }
     }
 }
