@@ -53,6 +53,5 @@ final class TabBarController: UITabBarController {
             favoritesNavController
             ],
                            animated: true)
-        
     }
 }
