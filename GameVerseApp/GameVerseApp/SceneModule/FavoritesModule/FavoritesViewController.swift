@@ -10,9 +10,11 @@ import UIKit
 protocol FavoritesViewControllerInterface: AnyObject {
     func showFavorites(_ game: [GameModel])
 }
-
+// favoriteste bişi yokkken no favorites yet desin.
 class FavoritesViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var emptyView: UIView!
+    @IBOutlet weak var emptyLabel: UILabel!
     
     private lazy var viewmodel: FavoritesViewModelInterface = FavoritesViewModel(view: self)
     
@@ -29,8 +31,11 @@ class FavoritesViewController: UIViewController {
     }
     
     private func setNavigationBar() {
+        let font = UIFont(name: "HoeflerText-Regular", size: 18)
+        
         navigationController?.navigationBar.topItem?.title = "Wishlist"
-        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.textColorWhite]
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.textColorWhite,
+                                                                   .font: font]
     }
     
     func setTableViewDataSourceAndDelegates() {
@@ -42,6 +47,11 @@ class FavoritesViewController: UIViewController {
         let nib = UINib(nibName: "FavoritesTableViewCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "FavoritesTableViewCell")
     }
+    
+    private func setEmptyViewHidden(isHidden: Bool) {
+        emptyView.isHidden = isHidden
+    }
+    
 }
 
 extension FavoritesViewController: UITableViewDataSource {
@@ -91,6 +101,11 @@ extension FavoritesViewController: UITableViewDelegate {
 extension FavoritesViewController: FavoritesViewControllerInterface {
     func showFavorites(_ game: [GameModel]) {
         DispatchQueue.main.async {
+            if game.isEmpty {
+                self.setEmptyViewHidden(isHidden: false)
+            } else {
+                self.setEmptyViewHidden(isHidden: true)
+            }
             self.tableView.reloadData()
         }
     }

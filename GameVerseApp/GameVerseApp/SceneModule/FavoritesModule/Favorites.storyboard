@@ -19,6 +19,24 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="app_background" translatesAutoresizingMaskIntoConstraints="NO" id="4Xz-bT-Qgt">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                             </imageView>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NdJ-md-YN2">
+                                <rect key="frame" x="32" y="413.66666666666669" width="329" height="25"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No games in wishlist yet." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dnW-Hi-aIk">
+                                        <rect key="frame" x="8" y="4" width="313" height="17"/>
+                                        <fontDescription key="fontDescription" name="HoeflerText-Regular" family="Hoefler Text" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="dnW-Hi-aIk" firstAttribute="leading" secondItem="NdJ-md-YN2" secondAttribute="leading" constant="8" id="PKN-z3-jXP"/>
+                                    <constraint firstAttribute="bottom" secondItem="dnW-Hi-aIk" secondAttribute="bottom" constant="4" id="gbk-XH-XWd"/>
+                                    <constraint firstItem="dnW-Hi-aIk" firstAttribute="top" secondItem="NdJ-md-YN2" secondAttribute="top" constant="4" id="jmu-ea-l3p"/>
+                                    <constraint firstAttribute="trailing" secondItem="dnW-Hi-aIk" secondAttribute="trailing" constant="8" id="n2h-fI-MBC"/>
+                                </constraints>
+                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Y4X-zb-Vnf">
                                 <rect key="frame" x="0.0" y="118" width="393" height="734"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -29,16 +47,22 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="4Xz-bT-Qgt" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="8B1-L4-gGD"/>
+                            <constraint firstItem="NdJ-md-YN2" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="32" id="Ez8-9o-osY"/>
                             <constraint firstItem="Y4X-zb-Vnf" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="GUw-en-GE7"/>
                             <constraint firstItem="Y4X-zb-Vnf" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="Gvf-R3-Btr"/>
                             <constraint firstAttribute="bottom" secondItem="Y4X-zb-Vnf" secondAttribute="bottom" id="M5R-Qv-u3J"/>
                             <constraint firstItem="Y4X-zb-Vnf" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="P4K-XF-DT1"/>
                             <constraint firstItem="4Xz-bT-Qgt" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="Svb-1v-d4Y"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="NdJ-md-YN2" secondAttribute="trailing" constant="32" id="Vj2-Jq-62X"/>
                             <constraint firstItem="4Xz-bT-Qgt" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="cH5-Xa-urx"/>
+                            <constraint firstItem="NdJ-md-YN2" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="hQs-rN-O70"/>
+                            <constraint firstItem="NdJ-md-YN2" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="o7u-Me-S1Z"/>
                             <constraint firstAttribute="bottom" secondItem="4Xz-bT-Qgt" secondAttribute="bottom" id="yso-uX-uPc"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="emptyLabel" destination="dnW-Hi-aIk" id="mgL-8T-zPw"/>
+                        <outlet property="emptyView" destination="NdJ-md-YN2" id="wzB-Lg-HdJ"/>
                         <outlet property="tableView" destination="Y4X-zb-Vnf" id="C4t-05-H5e"/>
                     </connections>
                 </viewController>
