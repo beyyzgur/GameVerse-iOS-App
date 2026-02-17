@@ -6,6 +6,19 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		FD1B954D2F18FA1F006E48C6 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = FD1B954C2F18FA1F006E48C6 /* FirebaseAnalytics */; };
+		FD1B954F2F18FA1F006E48C6 /* FirebaseAnalyticsCore in Frameworks */ = {isa = PBXBuildFile; productRef = FD1B954E2F18FA1F006E48C6 /* FirebaseAnalyticsCore */; };
+		FD1B95512F18FA1F006E48C6 /* FirebaseAnalyticsIdentitySupport in Frameworks */ = {isa = PBXBuildFile; productRef = FD1B95502F18FA1F006E48C6 /* FirebaseAnalyticsIdentitySupport */; };
+		FD1B95532F18FA1F006E48C6 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = FD1B95522F18FA1F006E48C6 /* FirebaseAuth */; };
+		FD1B95552F18FA1F006E48C6 /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = FD1B95542F18FA1F006E48C6 /* FirebaseCore */; };
+		FD1B95572F18FA1F006E48C6 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = FD1B95562F18FA1F006E48C6 /* FirebaseCrashlytics */; };
+		FD1B95592F18FA1F006E48C6 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = FD1B95582F18FA1F006E48C6 /* FirebaseDatabase */; };
+		FD1B955B2F18FA1F006E48C6 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = FD1B955A2F18FA1F006E48C6 /* FirebaseFirestore */; };
+		FD1B955D2F18FA1F006E48C6 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = FD1B955C2F18FA1F006E48C6 /* FirebaseStorage */; };
+		FDD82B7A2F24DC8C00D30513 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = FDD82B792F24DC8C00D30513 /* Kingfisher */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		FD91C41C2F1676720057A588 /* GameVerseApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GameVerseApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -36,6 +49,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD1B954D2F18FA1F006E48C6 /* FirebaseAnalytics in Frameworks */,
+				FD1B95552F18FA1F006E48C6 /* FirebaseCore in Frameworks */,
+				FD1B955D2F18FA1F006E48C6 /* FirebaseStorage in Frameworks */,
+				FD1B954F2F18FA1F006E48C6 /* FirebaseAnalyticsCore in Frameworks */,
+				FDD82B7A2F24DC8C00D30513 /* Kingfisher in Frameworks */,
+				FD1B95572F18FA1F006E48C6 /* FirebaseCrashlytics in Frameworks */,
+				FD1B95512F18FA1F006E48C6 /* FirebaseAnalyticsIdentitySupport in Frameworks */,
+				FD1B955B2F18FA1F006E48C6 /* FirebaseFirestore in Frameworks */,
+				FD1B95592F18FA1F006E48C6 /* FirebaseDatabase in Frameworks */,
+				FD1B95532F18FA1F006E48C6 /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +101,16 @@
 			);
 			name = GameVerseApp;
 			packageProductDependencies = (
+				FD1B954C2F18FA1F006E48C6 /* FirebaseAnalytics */,
+				FD1B954E2F18FA1F006E48C6 /* FirebaseAnalyticsCore */,
+				FD1B95502F18FA1F006E48C6 /* FirebaseAnalyticsIdentitySupport */,
+				FD1B95522F18FA1F006E48C6 /* FirebaseAuth */,
+				FD1B95542F18FA1F006E48C6 /* FirebaseCore */,
+				FD1B95562F18FA1F006E48C6 /* FirebaseCrashlytics */,
+				FD1B95582F18FA1F006E48C6 /* FirebaseDatabase */,
+				FD1B955A2F18FA1F006E48C6 /* FirebaseFirestore */,
+				FD1B955C2F18FA1F006E48C6 /* FirebaseStorage */,
+				FDD82B792F24DC8C00D30513 /* Kingfisher */,
 			);
 			productName = GameVerseApp;
 			productReference = FD91C41C2F1676720057A588 /* GameVerseApp.app */;
@@ -107,6 +140,10 @@
 			);
 			mainGroup = FD91C4132F1676720057A588;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				FD1B954B2F18FA1F006E48C6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				FDD82B782F24DC8C00D30513 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = FD91C41D2F1676720057A588 /* Products */;
 			projectDirPath = "";
@@ -140,6 +177,8 @@
 /* Begin XCBuildConfiguration section */
 		FD91C4302F1676740057A588 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = FD91C41E2F1676720057A588 /* GameVerseApp */;
+			baseConfigurationReferenceRelativePath = Secrets.xcconfig;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -148,6 +187,7 @@
 				DEVELOPMENT_TEAM = M452745QWJ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GameVerseApp/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = GameVerse;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -172,6 +212,8 @@
 		};
 		FD91C4312F1676740057A588 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = FD91C41E2F1676720057A588 /* GameVerseApp */;
+			baseConfigurationReferenceRelativePath = Secrets.xcconfig;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -180,6 +222,7 @@
 				DEVELOPMENT_TEAM = M452745QWJ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GameVerseApp/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = GameVerse;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -204,6 +247,8 @@
 		};
 		FD91C4322F1676740057A588 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = FD91C41E2F1676720057A588 /* GameVerseApp */;
+			baseConfigurationReferenceRelativePath = Secrets.xcconfig;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -268,6 +313,8 @@
 		};
 		FD91C4332F1676740057A588 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = FD91C41E2F1676720057A588 /* GameVerseApp */;
+			baseConfigurationReferenceRelativePath = Secrets.xcconfig;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -345,6 +392,78 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		FD1B954B2F18FA1F006E48C6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 12.8.0;
+			};
+		};
+		FDD82B782F24DC8C00D30513 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.6.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FD1B954C2F18FA1F006E48C6 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FD1B954B2F18FA1F006E48C6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		FD1B954E2F18FA1F006E48C6 /* FirebaseAnalyticsCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FD1B954B2F18FA1F006E48C6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsCore;
+		};
+		FD1B95502F18FA1F006E48C6 /* FirebaseAnalyticsIdentitySupport */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FD1B954B2F18FA1F006E48C6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsIdentitySupport;
+		};
+		FD1B95522F18FA1F006E48C6 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FD1B954B2F18FA1F006E48C6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		FD1B95542F18FA1F006E48C6 /* FirebaseCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FD1B954B2F18FA1F006E48C6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCore;
+		};
+		FD1B95562F18FA1F006E48C6 /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FD1B954B2F18FA1F006E48C6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
+		};
+		FD1B95582F18FA1F006E48C6 /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FD1B954B2F18FA1F006E48C6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+		FD1B955A2F18FA1F006E48C6 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FD1B954B2F18FA1F006E48C6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		FD1B955C2F18FA1F006E48C6 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FD1B954B2F18FA1F006E48C6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+		FDD82B792F24DC8C00D30513 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FDD82B782F24DC8C00D30513 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = FD91C4142F1676720057A588 /* Project object */;
 }
