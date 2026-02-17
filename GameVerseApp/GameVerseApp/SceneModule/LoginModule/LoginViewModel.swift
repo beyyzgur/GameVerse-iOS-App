@@ -37,9 +37,7 @@ final class LoginViewModel {
             if let error = error {
                 view?.makeAlert(title: "Error", message: error.localizedDescription, onOK: nil)
             } else {
-                view?.makeAlert(title:"Succesfully Signed In", message: "You are being directed to the app" ) {
-                    self.navigateToTabbarController()
-                }
+                self.navigateToTabbarController()
             }
             return
         }
