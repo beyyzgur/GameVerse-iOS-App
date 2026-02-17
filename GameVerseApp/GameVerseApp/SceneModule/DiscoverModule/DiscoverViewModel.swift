@@ -98,6 +98,7 @@ extension DiscoverViewModel: DiscoverViewModelInterface {
     
     func performSearch(with text: String) {
         Task {
+            view?.showProgress()
             do {
                 if !text.isEmpty {
                     let response: ApiResponse<GameModel> = try await apiService.request(.searchQuery(text: text))
@@ -113,12 +114,15 @@ extension DiscoverViewModel: DiscoverViewModelInterface {
             } catch {
                 self.view?.makeAlert(title: "Error", message: "Search failed", onOK: nil)
             }
+            view?.removeProgress()
         }
     }
     
     func didSelectGenre(at index: Int) {
         Task {
+            view?.showProgress()
             await didSelectGenreInternal(at: index)
+            view?.removeProgress()
         }
     }
     
@@ -148,7 +152,9 @@ extension DiscoverViewModel: DiscoverViewModelInterface {
     
     func fetchNextPageGames() {
         Task {
+            view?.showProgress()
             await fetchNextPageGamesInternal()
+            view?.removeProgress()
         }
     }
     

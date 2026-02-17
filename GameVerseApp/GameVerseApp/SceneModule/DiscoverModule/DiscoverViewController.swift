@@ -89,7 +89,7 @@ extension DiscoverViewController: UICollectionViewDataSource {
                         numberOfItemsInSection section: Int) -> Int {
         switch collectionView {
         case self.collectionView:
-            return viewmodel.games.count // model.game.id.count gibi bişi olcak i guess/ pagination ?
+            return viewmodel.games.count
         case categoryCollectionView:
             return viewmodel.genres.count
         default:
@@ -100,7 +100,7 @@ extension DiscoverViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         switch collectionView {
-            case self.collectionView:
+        case self.collectionView:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DiscoverCollectionViewCell", for: indexPath) as? DiscoverCollectionViewCell else { return UICollectionViewCell() }
             cell.configure(with: viewmodel.games[indexPath.item])
             return cell
@@ -144,7 +144,7 @@ extension DiscoverViewController: UICollectionViewDelegate {
         let height = scrollView.frame.size.height
         
         // En alta 100px kala yeni sayfayı iste
-    print("hex1 scroll yapiliyor...: offsetY: \(offsetY), contentHeight: \(contentHeight), height: \(height);;; ofsetU > contentH - height - 100: \(offsetY > contentHeight - height - 100)")
+        print("hex1 scroll yapiliyor...: offsetY: \(offsetY), contentHeight: \(contentHeight), height: \(height);;; ofsetU > contentH - height - 100: \(offsetY > contentHeight - height - 100)")
         if offsetY > contentHeight - height - 100 {
             // ViewModel içindeki fetchNextPageGames() metodunu çağır
             // Not: ViewModel protokolüne (Interface) bu metodu eklemeyi unutma

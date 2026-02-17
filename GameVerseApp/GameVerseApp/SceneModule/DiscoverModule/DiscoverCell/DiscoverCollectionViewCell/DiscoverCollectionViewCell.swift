@@ -38,6 +38,4 @@ final class DiscoverCollectionViewCell: UICollectionViewCell {
                 .cacheSerializer(FormatIndicatedCacheSerializer.png)
             ])
     }
-
 }
-
