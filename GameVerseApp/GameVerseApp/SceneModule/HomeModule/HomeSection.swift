@@ -6,8 +6,7 @@
 //
 
 enum HomeSection: Int, CaseIterable {
-    case header // 1.
-    case trendingGames // 3.
-    case topRatedGames // 2.
-//    case customGames // under 10$ games // 5.
+    case header
+    case trendingGames
+    case topRatedGames
 }
