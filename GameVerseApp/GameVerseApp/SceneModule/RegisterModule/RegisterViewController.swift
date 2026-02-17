@@ -19,6 +19,8 @@ final class RegisterViewController: UIViewController {
     @IBOutlet private weak var emailTextField: UITextField!
     @IBOutlet private weak var passwordTextField: UITextField!
     @IBOutlet private weak var confirmPasswordTextField: UITextField!
+    @IBOutlet weak var signUpButton: UIButton!
+    
     
     private lazy var viewModel = RegisterViewModel(view: self)
     
@@ -35,6 +37,7 @@ final class RegisterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setTextFields()
+        setsignUpButton()
     }
     
     // MARK: - IBAction & @objc functions
@@ -60,8 +63,6 @@ final class RegisterViewController: UIViewController {
     }
     
     // MARK: - functions
-    
-    
     func setTextFields() {
         textFields.forEach {
             $0.delegate = self
@@ -72,9 +73,10 @@ final class RegisterViewController: UIViewController {
         
         emailTextField.keyboardType = .emailAddress
         emailTextField.autocapitalizationType = .none
-        
-        //passwordTextField.isSecureTextEntry = true
-        // confirmPasswordTextField.isSecureTextEntry = true
+    }
+    
+    private func setsignUpButton() {
+        signUpButton.layer.cornerRadius = 12
     }
 }
 
