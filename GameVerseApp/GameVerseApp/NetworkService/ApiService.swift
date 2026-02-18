@@ -11,7 +11,7 @@ protocol ApiServiceProtocol {
     func request<T: Decodable>(_ router: ApiRouter) async throws -> T
 }
 
-final class ApiService {
+final class ApiService: ApiServiceProtocol {
     static let shared = ApiService()
     
     private init() {}
